@@ -1,3 +1,5 @@
+let s:save_cpo = &cpo
+set cpo&vim
 function! s:create_lang_text(text)
   if a:text != ""
     return " lang=\"" . a:text . "\""
@@ -5,7 +7,7 @@ function! s:create_lang_text(text)
   return ""
 endfunction
 
-function! init_vue_componenti#insert_init()
+function! init_vue_component#insert_init()
   call inputsave()
   let template = input("template: ")
   let script = input("script: ")
