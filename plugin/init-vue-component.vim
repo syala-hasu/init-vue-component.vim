@@ -1,21 +1,7 @@
-function! CreateLangText(text)
-  if a:text != ""
-    return " lang=\"" . a:text . "\""
-  endif
-  return ""
-endfunction
+if exists("g:loaded_init_vue_component")
+  finish
+endif 
 
-function! InitVueComponent()
-  call inputsave()
-  let template = input("template: ")
-  let script = input("script: ")
-  let style = input("style: ")
-  call inputrestore()
-  execute ":normal gg"
-  execute ":normal i<template" . CreateLangText(template) . ">\n</template>\n"
-  execute ":normal i<script" . CreateLangText(script) . ">\n</script>\n"
-  execute ":normal i<style" . CreateLangText(style) . ">\n</style>\n"
-endfunction
+let g:loaded_init_vue_component=1
 
-command! InitVueComponent call InitVueComponent()
-
+command! InitVueComponent call init_vue_component#insert_init()
