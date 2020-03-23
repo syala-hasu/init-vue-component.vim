@@ -1,5 +1,3 @@
-let s:save_cpo = &cpo
-set cpo&vim
 function! s:create_lang_text(text)
   if a:text != ""
     return " lang=\"" . a:text . "\""
@@ -14,8 +12,8 @@ function! init_vue_component#insert_init()
   let style = input("style: ")
   call inputrestore()
   execute ":normal gg"
-  execute ":normal i<template" . create_lang_text(template) . ">\n</template>\n"
-  execute ":normal i<script" . create_lang_text(script) . ">\n</script>\n"
-  execute ":normal i<style" . create_lang_text(style) . ">\n</style>\n"
+  execute ":normal i<template" . s:create_lang_text(template) . ">\n</template>\n"
+  execute ":normal i<script" . s:create_lang_text(script) . ">\n</script>\n"
+  execute ":normal i<style" . s:create_lang_text(style) . ">\n</style>\n"
 endfunction
 
